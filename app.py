@@ -14,17 +14,18 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///case_data12345.db"
 db.init_app(app)
 
 class Case_Data(db.Model):
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    Case_number: Mapped[int] = mapped_column(Integer, nullable=False)
-    name_undertrial: Mapped[str] = mapped_column(String, nullable=False)
-    crime_type: Mapped[str] = mapped_column(String(500), nullable=True)
-    imprisonment: Mapped[str] = mapped_column(String(200), nullable=True)
-    bail_bond: Mapped[int] = mapped_column(Integer, nullable=True)
-    surety: Mapped[str] = mapped_column(String(250), nullable=True)
-    ever_escaped: Mapped[str] = mapped_column(String, nullable=False)
-    risk_of_case: Mapped[int] = mapped_column(Integer, nullable=False)
-    served_half_term: Mapped[str] = mapped_column(String, nullable=False)
-    penalty_or_fine: Mapped[str] = mapped_column(String(250), nullable=False)
+    case_id: Mapped[int] = mapped_column(Integer, primary_key=True)  # Aligning with case_id from CSV
+    statute: Mapped[str] = mapped_column(String(50), nullable=False)  # Aligning with statute from CSV
+    offense_category: Mapped[str] = mapped_column(String(500), nullable=True)  # Aligning with offense_category from CSV
+    penalty: Mapped[str] = mapped_column(String(200), nullable=True)  # Aligning with penalty from CSV
+    imprisonment_duration_served: Mapped[int] = mapped_column(Integer, nullable=True)  # Aligning with imprisonment_duration_served from CSV
+    risk_of_escape: Mapped[bool] = mapped_column(String, nullable=False)  # Aligning with risk_of_escape from CSV
+    surety_bond_required: Mapped[bool] = mapped_column(String, nullable=False)  # Aligning with surety_bond_required from CSV
+    # fines_applicable: Mapped[bool] = mapped_column(String, nullable=False)  # Aligning with fines_applicable from CSV
+    served_half_term: Mapped[bool] = mapped_column(String, nullable=False)  # Aligning with served_half_term from CSV
+    bail_eligibility: Mapped[bool] = mapped_column(String, nullable=False)  # Aligning with bail_eligibility from CSV
+    risk_score: Mapped[int] = mapped_column(Integer, nullable=False)  # Aligning with risk_score from CSV
+    penalty_severity: Mapped[int] = mapped_column(Integer, nullable=False)  # Aligning with penalty_severity from CSV
 
 with app.app_context():
     db.create_all()
