@@ -7,7 +7,15 @@ const menu = document.querySelector(".block");
 const menuclose = document.querySelector("#cancel");
 const submenu = document.getElementById("subwrap");
 const audiolist = document.querySelector(".song-container");
-const musicfunc = document.querySelector('#play-pause')
+const musicfunc = document.querySelector('#play-pause');
+const chatInput = document.querySelector("#chat-input");
+const sendButton = document.querySelector("#send-btn");
+const chatcontainer = document.querySelector(".chat-container");
+const cart = document.querySelector(".cart");
+const chatclose = document.querySelector("#close-cart");
+const chatopen = document.querySelector("#menu-search");
+let userText = null;
+
 
 
 function toggleprofile() {
@@ -121,9 +129,96 @@ function activatemenu() {
   };
 }
 
+function toggleChat(){
+  chatopen.onclick = () => {
+    cart.classList.add("active");
+  };
+  chatclose.onclick = () => {
+    cart.classList.remove("active");
+  };
+
+  window.onscroll = () => {
+    cart.classList.remove("active");
+  };
+}
+
+
+
+
+
+
+const createElement =(html,className) => {
+  const chatDiv = document.createElement("div");
+  chatDiv.classList.add("chat",className);
+  chatDiv.innerHTML = html;
+  return chatDiv;
+};
+
+const showtypingdot = () => {
+  const html=`  <div class="chat-content">
+                <div class="chat-details">
+                  <img src="{{ url_for('static', filename='img/law-logo-rev.png') }}" alt="sys-img">
+                <div class="typing-animation">
+                  <div class="typing-dot"style="--delay:0.2s"></div>
+                  <div class="typing-dot"style="--delay:0.3s"></div>
+                  <div class="typing-dot"style="--delay:0.4s"></div>
+                </div>
+                </div>
+              </div>`
+  const outgoingChatDiv = createElement(html,"incoming")
+  chatcontainer.appendChild(outgoingChatDiv);
+  getChatResponse();
+}
+const handleOutgoingChat = () => {
+  userText= chatInput.value.trim();
+  // console.log(userText);
+  const html=`<div class="chat-content">
+              <div class="chat-details">
+              <img src="{{ url_for('static', filename='img/lawyer1.jpeg') }}" alt="user-img">
+              <p>${userText}</p>
+              </div>
+            </div>`
+  const outgoingChatDiv = createElement(html,"outgoing")
+  chatcontainer.appendChild(outgoingChatDiv);
+  chatInput.value = "";
+  setTimeout(showtypingdot,500);
+}
+
+sendButton.addEventListener("click",handleOutgoingChat);
+const API_KEY = "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"
+
+const getChatResponse = async () => {
+  const API_URL = " https://api.openai.com/v1/completions";
+
+  const requestOptions ={
+    method:"POST",
+    headers:{
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${API_KEY}`
+    },
+    body:JSON.stringify(
+      {
+        model: "gpt-3.5-turbo",
+        prompt: userText,
+        max_tokens: 2048,
+        temperature: 0.2,
+        top_p:1,
+        n:1,
+        stop: null
+      }
+    )
+  }
+  try{
+    const response= await(await fetch(API_URL,requestOptions)).JSON();
+    console.log(response);
+  }catch(err){
+    console.log(err);
+  }
+}
  
+// scrollAnim();
 setTimeout(enableMain, 5000);
 loadingCounter();
-// scrollAnim();
 cursorEffect();
 activatemenu();
+toggleChat();

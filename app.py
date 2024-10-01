@@ -101,8 +101,6 @@ def get_data():
 def index():
    return render_template('index.html')
 
-file_path="a.csv"
-data = pd.read_csv(file_path)
 
 @app.route("/hogaya")
 def getget():

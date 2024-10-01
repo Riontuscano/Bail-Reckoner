@@ -21,6 +21,7 @@
   </style>
 </head>
 <body id="main1">
+  <div class="main">
   <div class="cursor">
     <svg  viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg" >
     <defs>
@@ -68,8 +69,9 @@
       <div class="page1">
         <img src="{{ url_for('static', filename='img/landing-page.jpg') }}" alt="main-img" class="background"></img>
         <div class="page1content">
-          <div class="block">
-            <!-- <img src="{{ url_for('static', filename='img/logo.webp') }}" alt=""> -->
+
+            <div class="block">
+              <!-- <img src="{{ url_for('static', filename='img/logo.webp') }}" alt=""> -->
             <i class='bx bx-plus' id="cancel"></i>
   
             <div class="social">
@@ -80,7 +82,7 @@
                         d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
                     </svg></a></li>
                 <li> <a href="https://www.instagram.com/soundsafeai/" target="_blank"><i class='bx bxl-instagram'
-                      id="icon"></i></a></li>
+                  id="icon"></i></a></li>
                 <li> <a href="https://www.facebook.com/profile.php?id=100089546885855" target="_blank"><i class='bx bxl-facebook-circle' id="icon"></i></a></li>
               </ul>
             </div>
@@ -92,7 +94,7 @@
                 <ul>
                   <li><a href="#">HOME</a></li>
                   <li><a href="/detail">CASE DETAILS</a></li>
-                  <li><a href="#">TBD</a></li>
+                  <li><a href="/predictor">PREDICTOR</a></li>
                   <li><a href="#">TBD</a></li>
                   <li><a href="#">TBD</a></li>
                 </ul>
@@ -111,11 +113,12 @@
             <div class="bx bx-menu" id="menu-icon"></div>
             <!-- <img src="{{ url_for('static', filename='./img/profile.png') }}" alt="profile" class="nav-profile-login" id="main-profile-img" onclick="toggleprofile()"> -->
             <div class='bx bx-user-circle'class="nav-profile-login" id="main-profile-img" onclick="toggleprofile()"></div>
+            <i class='bx bx-search-alt' id="menu-search" ></i>
             
             <div class="sub-wrap" id="subwrap">
-                <div class="submenu">
-                    <div class="info-user">
-                        <img src="" alt="" id="profile-img">
+              <div class="submenu">
+                <div class="info-user">
+                  <img src="" alt="" id="profile-img">
                         <h4 id="profile-name"></h4>
                     </div>
                     <hr>
@@ -123,7 +126,7 @@
                         <i class='bx bxs-cog'></i>
                         <p>Edit-profile</p>
                         <span>></span>
-                    </a>
+                      </a>
                     <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJqTfglMlTbWdhkfQjBbrSxJVcGQtvKmQgrzGZSZWLsLLQxstpsMfXtrhSfHHwhpmGdMsmg-"
                         class="sub-menu-link">
                         <i class='bx bx-support'></i>
@@ -140,26 +143,29 @@
                         <p>Sign-up</p>
                         <span>></span>
                     </a>
+                  </div>
                 </div>
-            </div>
+                <div class="cart">
+                  <center><h2 class="chat-title">Study-Freak AI</h2></center>
+                  <div class="chat-container">
+                   
+             
+                  </div>
+                  <div class="typing-container">
+                    <div class="typing-content">
+                      <div class="typing-textarea">
+                        <textarea name="" id="chat-input" placeholder="Enter your doubt........." required></textarea>
+                        <i class='bx bx-send' id="send-btn"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <ion-icon name="arrow-forward-circle" id="close-cart"></ion-icon>
+          
+                </div>
           </div>
-          <!-- <div class="cart"></div>
-            <h2 class="cart-title">Your Cart</h2>
-            <div class="cart-content">
-            </div>
-            <div class="cart-total">
-                <div class="cart-total-title">Total </div>
-                <div class="totalprice"> Rs.0</div>
-            </div>
-            <div id="note">     
-                <br><br>           
-                <b>Note:-</b>Please Login before Checkout
-            </div>
-            <button type="button" class="cart-btn" id="cartbtn">Buy Now</button>
-            <ion-icon name="arrow-forward-circle" id="close-cart"></ion-icon>
-        </div> -->
-          </nav>
-
+        </nav>
+    
+        
           <section class="home" id="home">
 
             <div class="home_txt">
@@ -273,7 +279,7 @@
           </div>
         </footer>
       </div>
-   
+    </div>
     <!-------------------------------------------------------------- script ---------------------------------------------------------------->
     
   
