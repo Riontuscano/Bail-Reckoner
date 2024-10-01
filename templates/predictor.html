@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bail karo®️ | Bail Predictor</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Detail | Bail Karo</title>
     <!--  links  -->
     
@@ -47,8 +55,8 @@
               <div class="right-nav">
                 <ul>
                   <li><a href="/">HOME</a></li>
-                  <li><a href="#">CASE DETAILS</a></li>
-                  <li><a href="/predictor">PREDICTOR</a></li>
+                  <li><a href="/detail">CASE DETAILS</a></li>
+                  <li><a href="#">PREDICTOR</a></li>
                   <li><a href="#">TBD</a></li>
                   <li><a href="#">TBD</a></li>
                 </ul>
@@ -176,10 +184,7 @@
                 </div>
                 <div class="everescape-grp">
                     <label for="everescape">Risk of Escape:</label>
-                    <select name="served_half_term" id="servedhalfterm">
-                      <option value="True">YES</option>
-                      <option value="False">NO</option>
-                  </select>
+                    <input type="text" id="everescape" name="ever_escaped" required>
                 </div>
                 
                 <div class="servedhalfterm-grp">
@@ -216,8 +221,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="/static/js/case-detail.js"></script>
-    <script src="/static/js/firebase.js"></script>
     <script></script>
+</body>
+</html>
 </body>
 </html>
 </body>

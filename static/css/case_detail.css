@@ -665,3 +665,8 @@ button:hover {
 .up {
   transform: rotate(-135deg);
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

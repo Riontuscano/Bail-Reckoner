@@ -92,6 +92,12 @@ nav h3{
   color:var(--text-color);
   cursor: pointer;
 }
+#menu-search{
+  font-size: 40px;
+  font-weight: 100;
+  color:var(--text-color);
+  cursor: pointer;
+}
 #main-profile-img{
   font-size: 40px;
   color:var(--text-color);
@@ -613,4 +619,10 @@ footer ul {
 
 footer li {
   margin-bottom: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
