@@ -1,17 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Jail si Bell Tak</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bailkaro®️ | Jail si Bail tak</title>
+  <!-- links -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+
+  <style>
+    
+    @font-face {
+      font-family: rj;
+      src: url("{{ url_for('static', filename='css/Rejouice-Headline.ttf') }}");
+    }
+  </style>
 </head>
-<body>
-     <div class="main">
-        <div class="page page1"></div>
-        <div class="page page2"></div>
-        <div class="page page3"></div>
-        <div class="page page4"></div>
-     </div>
+<body id="main1">
+  <div class="cursor">
+    <svg  viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg" >
+    <defs>
+      <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color: rgb(68,143,180);"></stop>
+        <stop offset="100%" style="stop-color: 	rgb(147,146,140);"></stop>
+      </linearGradient>
+    </defs>
+    <path id="blob" fill="url(#gradient)">
+      <animate attributeName="d"
+      dur="5000ms"
+      repeatCount="indefinite"
+
+      values="M446,311Q418,372,371.5,427Q325,482,256,462.5Q187,443,141.5,402.5Q96,362,70,306Q44,250,57.5,185Q71,120,129,88.5Q187,57,247.5,63.5Q308,70,367.5,95.5Q427,121,450.5,185.5Q474,250,446,311Z;
+      
+      M417.5,307Q407,364,359.5,402.5Q312,441,252.5,432.5Q193,424,135.5,399.5Q78,375,69,312.5Q60,250,76.5,193Q93,136,134.5,78.5Q176,21,240,51.5Q304,82,353.5,110.5Q403,139,415.5,194.5Q428,250,417.5,307Z;
+
+      M441,323.5Q452,397,381.5,417Q311,437,247.5,444.5Q184,452,119,422Q54,392,33.5,321Q13,250,59,197.5Q105,145,148.5,108Q192,71,253.5,60Q315,49,363,91Q411,133,420.5,191.5Q430,250,441,323.5Z;
+
+      M442.5,317.5Q436,385,380,431.5Q324,478,249,480.5Q174,483,139.5,419Q105,355,56,302.5Q7,250,47.5,191Q88,132,136,89Q184,46,253,36.5Q322,27,366,80.5Q410,134,429.5,192Q449,250,442.5,317.5Z;
+
+      M464.33448,316.52958Q433.08874,383.05916,376.60352,424.22184Q320.11831,465.38452,256.76337,444.1092Q193.40843,422.83387,147.26337,390.37257Q101.11831,357.91126,77.34927,303.95563Q53.58023,250,66.90843,188.08874Q80.23663,126.17747,133.08874,89Q185.94084,51.82253,250.57395,50.0859Q315.20705,48.34927,375.70421,81.47042Q436.20138,114.59157,465.8908,182.29579Q495.58023,250,464.33448,316.52958Z;
+
+      M454.5,317.5Q436,385,378.5,426.5Q321,468,251.5,463.5Q182,459,121,423.5Q60,388,49,319Q38,250,56.5,186.5Q75,123,132.5,94Q190,65,257.5,41.5Q325,18,382.5,65Q440,112,456.5,181Q473,250,454.5,317.5Z;
+
+      M446,311Q418,372,371.5,427Q325,482,256,462.5Q187,443,141.5,402.5Q96,362,70,306Q44,250,57.5,185Q71,120,129,88.5Q187,57,247.5,63.5Q308,70,367.5,95.5Q427,121,450.5,185.5Q474,250,446,311Z;
+
+
+      "></animate>
+    </path>
+  </svg></div>
+  <!-- <h1 class="counter">0</h1>
+  <div class="overlay">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div> -->
+      <div class="page1">
+        <img src="{{ url_for('static', filename='img/landing-page.jpg') }}" alt="main-img" class="background"></img>
+        <div class="page1content">
+          <div class="block">
+            <!-- <img src="{{ url_for('static', filename='img/logo.webp') }}" alt=""> -->
+            <i class='bx bx-plus' id="cancel"></i>
+  
+            <div class="social">
+              <ul>
+                <li><a href="https://x.com/SoundSafeAI" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                      height="22" fill="currentColor" class="bi bi-twitter-x" id="x-twitter" viewBox="0 0 16 16">
+                      <path
+                        d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+                    </svg></a></li>
+                <li> <a href="https://www.instagram.com/soundsafeai/" target="_blank"><i class='bx bxl-instagram'
+                      id="icon"></i></a></li>
+                <li> <a href="https://www.facebook.com/profile.php?id=100089546885855" target="_blank"><i class='bx bxl-facebook-circle' id="icon"></i></a></li>
+              </ul>
+            </div>
+            <nav class="block-nav">
+              <div class="left-nav">
+                <video autoplay muted loop src="{{ url_for('static', filename='video/law.mp4') }}"></video>
+              </div>
+              <div class="right-nav">
+                <ul>
+                  <li><a href="#">HOME</a></li>
+                  <li><a href="/detail">CASE DETAILS</a></li>
+                  <li><a href="#">TBD</a></li>
+                  <li><a href="#">TBD</a></li>
+                  <li><a href="#">TBD</a></li>
+                </ul>
+              </div>
+            </nav>
+            <hr class="navbottomline">
+            <h4 class="copyright-nav">Copyright @2024-25 | Designed With by Bail<span class="highlight">Karo</span>®️
+            </h4>
+          </div>
+          <nav>
+            <div class="logo-holder">
+              <img src="{{ url_for('static', filename='img/law-logo-rev.png') }}" alt="" class="logo-img"><h3 class="nav-main-headling">Bail<span class="highlight">Karo</span></h3>
+            </div>
+              <div class="auth" >
+
+            <div class="bx bx-menu" id="menu-icon"></div>
+            <!-- <img src="{{ url_for('static', filename='./img/profile.png') }}" alt="profile" class="nav-profile-login" id="main-profile-img" onclick="toggleprofile()"> -->
+            <div class='bx bx-user-circle'class="nav-profile-login" id="main-profile-img" onclick="toggleprofile()"></div>
+            
+            <div class="sub-wrap" id="subwrap">
+                <div class="submenu">
+                    <div class="info-user">
+                        <img src="" alt="" id="profile-img">
+                        <h4 id="profile-name"></h4>
+                    </div>
+                    <hr>
+                    <a href="#" class="sub-menu-link" id="profile-editprofile">
+                        <i class='bx bxs-cog'></i>
+                        <p>Edit-profile</p>
+                        <span>></span>
+                    </a>
+                    <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJqTfglMlTbWdhkfQjBbrSxJVcGQtvKmQgrzGZSZWLsLLQxstpsMfXtrhSfHHwhpmGdMsmg-"
+                        class="sub-menu-link">
+                        <i class='bx bx-support'></i>
+                        <p>Help-Support</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="sub-menu-link" id="profile-logout">
+                        <i class='bx bx-log-out'></i>
+                        <p>Log-out</p>
+                        <span>></span>
+                    </a>
+                    <a href="/login" class="sub-menu-link" id="profile-login">
+                        <i class='bx bx-log-in'></i>
+                        <p>Sign-up</p>
+                        <span>></span>
+                    </a>
+                </div>
+            </div>
+          </div>
+          </nav>
+
+          <section class="home" id="home">
+
+            <div class="home_txt">
+                <!-- <h1>Decor-Deck</h1> -->
+                <h1><span class="color">Get</span> Updates <br><span class="auto-type2"><span
+                  class="color1"></span></h1></span>
+                <p>
+                   Jail se Bail Tak !!!
+                </p>
+                <!-- <h1>Get <span class="auto-type"></span></h1><br> -->
+                <a href="/detail" class="btn2">Check Out</a>
+            </div>
+        </section>
+          
+    
+        </div>
+      </div>
+      <div class="page2">
+        <div class="page2content">
+          <div class="heading">
+          <h3>Services</h3>
+          <h2>We Provide</h2>
+        </div>
+        </div>
+      </div>
+      <div class="page3">Hello</div>
+      <div class="page4">Hello</div>
+      
+    <!-------------------------------------------------------------- script ---------------------------------------------------------------->
+    
+  
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesurfer.esm.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="/static/js/script.js"></script>
+    <script>
+      var typed = new Typed(".color1", {
+          strings: ["At Your Home", "At Your Office", "On Road", "At Your Doorstep", "And AnyWhere"],
+          typeSpeed: 30,
+          backSpeed: 30,
+          showCursor: true,
+          loop: true
+      })
+  </script>
 </body>
 </html>

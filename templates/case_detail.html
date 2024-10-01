@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Detail | Bail Karo</title>
+    <!--  links  -->
+    
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/case_detail.css') }}">
+    <!-- external links -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <style>
+        @font-face {
+          font-family: nb;
+          src: url("{{ url_for('static', filename='css/NBInternationalProBoo.ttf') }}");
+        }
+        @font-face {
+          font-family: rj;
+          src: url("{{ url_for('static', filename='css/Rejouice-Headline.ttf') }}");
+        }
+      </style>
+</head>
+<body class="prevent-select">
+    <div class="page1">
+        <div class="page1content">
+          <div class="block">
+            <img src="{{ url_for('static', filename='img/logo.webp') }}" alt="">
+            <i class='bx bx-plus' id="cancel"></i>
+  
+            <div class="social">
+              <ul>
+                <li><a href="https://x.com/SoundSafeAI" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                      height="22" fill="currentColor" class="bi bi-twitter-x" id="x-twitter" viewBox="0 0 16 16">
+                      <path
+                        d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+                    </svg></a></li>
+                <li> <a href="https://www.instagram.com/soundsafeai/" target="_blank"><i class='bx bxl-instagram'
+                      id="icon"></i></a></li>
+                <li> <a href="https://www.facebook.com/profile.php?id=100089546885855" target="_blank"><i class='bx bxl-facebook-circle' id="icon"></i></a></li>
+              </ul>
+            </div>
+            <nav class="block-nav">
+              <div class="left-nav">
+                <video autoplay muted loop src="{{ url_for('static', filename='video/law.mp4') }}"></video>
+              </div>
+              <div class="right-nav">
+                <ul>
+                  <li><a href="/">HOME</a></li>
+                  <li><a href="#">CASE DETAILS</a></li>
+                  <li><a href="#">TBD</a></li>
+                  <li><a href="#">TBD</a></li>
+                  <li><a href="#">TBD</a></li>
+                </ul>
+              </div>
+            </nav>
+            <hr class="navbottomline">
+            <h4 class="copyright-nav">Copyright @2024-25 | Designed With by Sound<span class="highlight">Safe</span>.AI®️
+            </h4>
+          </div>
+          <nav class="main-nav">
+            <div class="main-nav-logo">
+                <img src="{{ url_for('static', filename='img/law-logo-rev.png') }}" alt=""><h3>BailKaro</h3>
+            </div>
+            <div class="auth">
+  
+              <div class="bx bx-menu" id="menu-icon"></div>
+              <!-- <img src="{{ url_for('static', filename='./img/profile.png') }}" alt="profile" class="nav-profile-login" id="main-profile-img" onclick="toggleprofile()"> -->
+              <div class='bx bx-user-circle' class="nav-profile-login" id="main-profile-img" onclick="toggleprofile()">
+              </div>
+  
+              <div class="sub-wrap" id="subwrap">
+                <div class="submenu">
+                  <div class="info-user">
+                    <img src="" alt="" id="profile-img">
+                    <h4 id="profile-name"></h4>
+                  </div>
+                  <hr>
+                  <a href="#" class="sub-menu-link" id="profile-editprofile">
+                    <i class='bx bxs-cog'></i>
+                    <p>Edit-profile</p>
+                    <span>></span>
+                  </a>
+                  <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJqTfglMlTbWdhkfQjBbrSxJVcGQtvKmQgrzGZSZWLsLLQxstpsMfXtrhSfHHwhpmGdMsmg-"
+                    class="sub-menu-link">
+                    <i class='bx bx-support'></i>
+                    <p>Help-Support</p>
+                    <span>></span>
+                  </a>
+                  <a href="#" class="sub-menu-link" id="profile-logout">
+                    <i class='bx bx-log-out'></i>
+                    <p>Log-out</p>
+                    <span>></span>
+                  </a>
+                  <a href="/login" class="sub-menu-link" id="profile-login">
+                    <i class='bx bx-log-in'></i>
+                    <p>Sign-up</p>
+                    <span>></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+  <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
+   
+   
+    <div class="container">
+      <form id="multiStepForm" method="POST" autocomplete="off" action="{{ url_for('get_data') }}">
+        <div class="progress-bar">
+            <div class="step active">
+                <div class="circle"></div>
+            </div>
+            <div class="line"></div>
+            <div class="step">
+                <div class="circle"></div>
+            </div>
+        </div>
+    
+        <!-- Step 1: Case Details -->
+        <div class="form-step active">
+            <h2>Case Details</h2>
+            <div class="form-grid">
+                <div class="casenumber-grp">
+                    <label for="casenumber">Case Number:</label>
+                    <input type="number" id="casenumber" name="Case_number" required>
+                </div>
+                <div class="vname-grp">
+                    <label for="vname">Name of Undertrial:</label>
+                    <input type="text" id="vname" name="num_undertrial" required>
+                </div>
+            </div>
+            <button type="button" class="next-btn">Next</button>
+        </div>
+    
+        <!-- Step 2: Action Details -->
+        <div class="form-step">
+            <h2>Action Details</h2>
+            <div class="form-grid2">
+                <div class="crimes-grp">
+                    <label for="crimes">Select Crimes:</label>
+                    <div class="multi-select-container">
+                        <div class="select-btn">
+                            <p>Select items...</p>
+                            <p class="arrow"></p>
+                        </div>
+                        <div class="options-container">
+                            <div class="option" data-value="Cyber Crimes">Cyber Crimes</div>
+                            <div class="option" data-value="Crimes Against SCs and STs">Crimes Against SCs and STs</div>
+                            <div class="option" data-value="Crimes Against Women">Crimes Against Women</div>
+                            <div class="option" data-value="Crimes Against Children">Crimes Against Children</div>
+                            <div class="option" data-value="Offences Against the State">Offences Against the State</div>
+                            <div class="option" data-value="Economic Offence">Economic Offence</div>
+                            <div class="option" data-value="Crimes Against Foreigners">Crimes Against Foreigners</div>
+                        </div>
+                        <div class="badge-container"></div>
+                    </div>
+                </div>
+                <div class="imprisonment-grp">
+                    <label for="imprisonment">Imprisonment Served:</label>
+                    <input type="text" id="imprisonment" name="imprisonment" required>
+                </div>
+                <div class="bailbond-grp">
+                    <label for="bailbond">Bail Bond:</label>
+                    <input type="number" id="bailbond" name="bail_bond">
+                </div>
+                <div class="suretybond-grp">
+                    <label for="suretybond">Surety Bond:</label>
+                    <input type="text" id="suretybond" name="surety">
+                </div>
+                <div class="everescape-grp">
+                    <label for="everescape">Ever Escape:</label>
+                    <input type="text" id="everescape" name="ever_escaped" required>
+                </div>
+                <div class="riskofcase-grp">
+                    <label for="riskofcase">Risk of Case:</label>
+                    <input type="number" id="riskofcase" name="risk_of_case" required>
+                </div>
+                <div class="servedhalfterm-grp">
+                    <label for="servedhalfterm">Served Half Term:</label>
+                    <select name="served_half_term" id="servedhalfterm">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="penalty-grp">
+                    <label for="penalty">Penalty/Fine:</label>
+                    <select name="penalty_or_fine" id="penaltyFine">
+                        <option value="Fine">Fine</option>
+                        <option value="Imprisonment">Imprisonment</option>
+                        <option value="Both">Both</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" class="prev-btn">Previous</button>
+            <button type="submit" class="sbutton">Submit</button>
+        </div>
+    </form>
+    
+    </div>
+
+  </section> 
+  <!-- partial  -->
+
+ </body>
+
+</html>
+
+    <!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="/static/js/case-detail.js"></script>
+    <script src="/static/js/firebase.js"></script>
+    <script></script>
+</body>
+</html>
+</body>
+</html>
