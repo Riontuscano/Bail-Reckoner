@@ -6,7 +6,7 @@ case_id,statute,offense_category,penalty,imprisonment_duration_served,risk_of_es
 5,SCST Act,Offences Against the State,Imprisonment,71,False,False,False,True,True,False,False,0,142
 6,CrPC,Offences Against the State,Imprisonment,86,False,True,True,True,False,False,False,1,172
 7,PMLA,Crimes Against Foreigners,Both,119,False,True,True,False,False,True,False,2,357
-8,PMLA,Crimes Against SCs and STs,Imprisonment,33,False,False,False,False,False,False,False,0,66
+8,PMLA,Crimes Against SCs and STs,Imprisonment,33,False,False,False,False,False,False,False,0,66    
 9,PMLA,Cyber Crime,Imprisonment,81,False,True,True,True,True,False,False,1,162
 10,SCST Act,Crimes Against Children,Imprisonment,24,False,True,True,False,True,False,False,1,48
 11,NDPS,Crimes Against Foreigners,Imprisonment,61,False,True,False,True,True,False,False,1,122

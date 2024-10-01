@@ -1,3 +1,4 @@
+
 const counterElement = document.querySelector(".counter");
 const barElements = document.querySelector(".bar");
 const page1Content = document.querySelector(".page1content");
@@ -6,8 +7,6 @@ const menuicon = document.querySelector("#menu-icon");
 const menu = document.querySelector(".block");
 const menuclose = document.querySelector("#cancel");
 const submenu = document.getElementById("subwrap");
-const audiolist = document.querySelector(".song-container");
-const musicfunc = document.querySelector('#play-pause');
 const chatInput = document.querySelector("#chat-input");
 const sendButton = document.querySelector("#send-btn");
 const chatcontainer = document.querySelector(".chat-container");
@@ -157,7 +156,7 @@ const createElement =(html,className) => {
 const showtypingdot = () => {
   const html=`  <div class="chat-content">
                 <div class="chat-details">
-                  <img src="{{ url_for('static', filename='img/law-logo-rev.png') }}" alt="sys-img">
+                  <img src=""./image/law-logo-rev.png"" alt="sys-img">
                 <div class="typing-animation">
                   <div class="typing-dot"style="--delay:0.2s"></div>
                   <div class="typing-dot"style="--delay:0.3s"></div>
@@ -169,52 +168,114 @@ const showtypingdot = () => {
   chatcontainer.appendChild(outgoingChatDiv);
   getChatResponse();
 }
+// const handleOutgoingChat = () => {
+//   userText= chatInput.value.trim();
+//   // console.log(userText);
+//   const html=`<div class="chat-content">
+//               <div class="chat-details">
+//               <img src="{{ url_for('static', filename='img/lawyer1.jpeg') }}" alt="user-img">
+//               <p>${userText}</p>
+//               </div>
+//             </div>`
+//   const outgoingChatDiv = createElement(html,"outgoing")
+//   chatcontainer.appendChild(outgoingChatDiv);
+//   chatInput.value = "";
+//   setTimeout(showtypingdot,500);
+// }
+
+// const client = new GeminiClient('AIzaSyDdkZcBwrqonbagON5qa46wTainm2dRjkc');
+// const prompt = "Tell me a joke";
+// const response = await client.generate({
+//     model: "gemini-1.5-flash", // Replace with your desired model
+//     prompt: prompt,
+// });
+
+// console.log(response.text);
+
+
+
+const API_KEY = "AIzaSyDdkZcBwrqonbagON5qa46wTainm2dRjkc"
+
 const handleOutgoingChat = () => {
-  userText= chatInput.value.trim();
-  // console.log(userText);
-  const html=`<div class="chat-content">
-              <div class="chat-details">
-              <img src="{{ url_for('static', filename='img/lawyer1.jpeg') }}" alt="user-img">
-              <p>${userText}</p>
-              </div>
-            </div>`
-  const outgoingChatDiv = createElement(html,"outgoing")
+  userText = chatInput.value.trim();
+  const html = `<div class="chat-content">
+                  <div class="chat-details">
+                      <img src="static/image/default-profile.png" alt="user-img">
+                      <p>${userText}</p>
+                  </div>
+              </div>`;
+  const outgoingChatDiv = createElement(html, "outgoing");
   chatcontainer.appendChild(outgoingChatDiv);
-  chatInput.value = "";
-  setTimeout(showtypingdot,500);
-}
+  setTimeout(showtypingdot, 20);
 
-sendButton.addEventListener("click",handleOutgoingChat);
-const API_KEY = "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"
+  // Using AJAX to send data to Flask server
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/process_input', true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+          // Clear typing dots
+          chatcontainer.innerHTML = '';
 
-const getChatResponse = async () => {
-  const API_URL = " https://api.openai.com/v1/completions";
+          if (xhr.status === 200) {
+              var response = JSON.parse(xhr.responseText);
+              console.log("Server response:", response);
 
-  const requestOptions ={
-    method:"POST",
-    headers:{
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${API_KEY}`
-    },
-    body:JSON.stringify(
-      {
-        model: "gpt-3.5-turbo",
-        prompt: userText,
-        max_tokens: 2048,
-        temperature: 0.2,
-        top_p:1,
-        n:1,
-        stop: null
+              // Process the response as needed
+              if (response.success) {
+                  const systemResponse = response.completion;
+                  // Update your UI to display the system's response
+                  const systemHtml = `<div class="chat-content">
+                                          <div class="chat-details">
+                                              <img src="static/image/logomyapp.png" alt="sys-img">
+                                              <p>${systemResponse}</p>
+                                          </div>
+                                      </div>`;
+                  const incomingChatDiv = createElement(systemHtml, "incoming");
+                  chatcontainer.appendChild(incomingChatDiv);
+              } else {
+                  // Handle server error
+                  console.error("Server error:", response.error);
+              }
+          } else {
+              // Handle AJAX error
+              console.error("AJAX error:", xhr.statusText);
+          }
       }
-    )
-  }
-  try{
-    const response= await(await fetch(API_URL,requestOptions)).JSON();
-    console.log(response);
-  }catch(err){
-    console.log(err);
-  }
-}
+  };
+  xhr.send('user_input=' + userText);
+};
+
+sendButton.addEventListener("click", handleOutgoingChat);
+
+// const getChatResponse = async () => {
+//   const API_URL = " https://api.openai.com/v1/completions";
+
+//   const requestOptions ={
+//     method:"POST",
+//     headers:{
+//       "Content-Type": "application/json",
+//       "Authorization": `Bearer ${API_KEY}`
+//     },
+//     body:JSON.stringify(
+//       {
+//         model: "gpt-3.5-turbo",
+//         prompt: userText,
+//         max_tokens: 2048,
+//         temperature: 0.2,
+//         top_p:1,
+//         n:1,
+//         stop: null
+//       }
+//     )
+//   }
+//   try{
+//     const response= await(await fetch(API_URL,requestOptions)).JSON();
+//     console.log(response);
+//   }catch(err){
+//     console.log(err);
+//   }
+// }
  
 // scrollAnim();
 setTimeout(enableMain, 5000);

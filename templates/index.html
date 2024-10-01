@@ -146,7 +146,8 @@
                   </div>
                 </div>
                 <div class="cart">
-                  <center><h2 class="chat-title">Study-Freak AI</h2></center>
+                  <center><h2 class="chat-title">BailKaro.AI</h2></center>
+                  <hr class="chat-hr">
                   <div class="chat-container">
                    
              
@@ -293,6 +294,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="/static/js/script.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+    <script type="module">
+      import { GoogleGenerativeAI } from "@google/generative-ai";
+
+ 
+      const API_KEY = "AIzaSyDdkZcBwrqonbagON5qa46wTainm2dRjkc";
+  </script>
     <script>
       var typed = new Typed(".color1", {
           strings: ["At Your Home", "At Your Office", "On Road", "At Your Doorstep", "And AnyWhere"],
