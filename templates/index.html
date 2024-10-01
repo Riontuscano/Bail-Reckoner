@@ -21,6 +21,7 @@
   </style>
 </head>
 <body id="main1">
+  <div class="main">
   <div class="cursor">
     <svg  viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg" >
     <defs>
@@ -112,7 +113,7 @@
             <div class="bx bx-menu" id="menu-icon"></div>
             <!-- <img src="{{ url_for('static', filename='./img/profile.png') }}" alt="profile" class="nav-profile-login" id="main-profile-img" onclick="toggleprofile()"> -->
             <div class='bx bx-user-circle'class="nav-profile-login" id="main-profile-img" onclick="toggleprofile()"></div>
-            <i class='bx bx-search-alt' id="menu-search"></i>
+            <i class='bx bx-search-alt' id="menu-search" ></i>
             
             <div class="sub-wrap" id="subwrap">
               <div class="submenu">
@@ -145,19 +146,21 @@
                   </div>
                 </div>
                 <div class="cart">
-                  <h2 class="cart-title">Your Cart</h2>
-                  <div class="cart-content">
+                  <center><h2 class="chat-title">Study-Freak AI</h2></center>
+                  <div class="chat-container">
+                   
+             
                   </div>
-                  <div class="cart-total">
-                      <div class="cart-total-title">Total </div>
-                      <div class="totalprice"> Rs.0</div>
+                  <div class="typing-container">
+                    <div class="typing-content">
+                      <div class="typing-textarea">
+                        <textarea name="" id="chat-input" placeholder="Enter your doubt........." required></textarea>
+                        <i class='bx bx-send' id="send-btn"></i>
+                      </div>
+                    </div>
                   </div>
-                  <div id="note">     
-                    <br><br>           
-                      <b>Note:-</b>Please Login before Checkout
-                  </div>
-                  <button type="button" class="cart-btn" id="cartbtn">Buy Now</button>
                   <ion-icon name="arrow-forward-circle" id="close-cart"></ion-icon>
+          
                 </div>
           </div>
         </nav>
@@ -276,7 +279,7 @@
           </div>
         </footer>
       </div>
-   
+    </div>
     <!-------------------------------------------------------------- script ---------------------------------------------------------------->
     
   
