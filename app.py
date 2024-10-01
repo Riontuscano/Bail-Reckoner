@@ -8,9 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.metrics import accuracy_score, classification_report
 import joblib
-
-
-
+import random
 
 
 
@@ -20,7 +18,7 @@ class Base(DeclarativeBase):
 app=Flask(__name__)
 
 db = SQLAlchemy(model_class=Base)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///caseFinal.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///caseFinal12.db"
 db.init_app(app)
 
 def append_to_csv(case_data, csv_filename='a.csv'):
@@ -30,17 +28,22 @@ def append_to_csv(case_data, csv_filename='a.csv'):
         
         # Convert the object's attributes to a list
         row = [
-            
-            case_data.case_number,
-            case_data.statute,
-            case_data.offense_category,
-            case_data.penalty,
-            int(case_data.imprisonment_duration_served),
-            case_data.risk_of_escape,
-            case_data.bail_bond,
-            case_data.surety_bond_required,
-            case_data.served_half_term,
-        ]
+            case_data.case_number,                # Mapped[int] case_number
+            case_data.statute,                    # Mapped[str] statute
+            case_data.offense_category,           # Mapped[str] offense_category
+            case_data.penalty,                    # Mapped[str] penalty
+            case_data.imprisonment_duration_served,  # Mapped[int] imprisonment_duration_served
+            case_data.risk_of_escape,             # Mapped[str] risk_of_escape
+            case_data.bail_eligibility,                  # Mapped[str] bail_bond
+            case_data.surety_bond_required,       # Mapped[str] surety_bond_required
+            case_data.served_half_term,           # Mapped[str] served_half_term
+            case_data.risk_of_influence,          # Mapped[str] risk_of_influence
+            case_data.personal_bond_required,     # Mapped[str] personal_bond_required
+            case_data.fines_applicable,           # Mapped[str] fines_applicable
+            case_data.risk_score,                 # Mapped[int] risk_score
+            case_data.penalty_severity            # Mapped[int] penalty_severity
+            ]
+
         
         # Append the row to the CSV file
         writer.writerow(row)
@@ -59,43 +62,78 @@ class Case_Data(db.Model):
     offense_category: Mapped[str] = mapped_column(String(500), nullable=True)  # Aligning with offense_category from CSV
     penalty: Mapped[str] = mapped_column(String(200), nullable=True)  # Aligning with penalty from CSV
     imprisonment_duration_served: Mapped[int] = mapped_column(Integer, nullable=True)  # Aligning with imprisonment_duration_served from CSV
-    risk_of_escape: Mapped[bool] = mapped_column(String, nullable=False)  # Aligning with risk_of_escape from CSV
-    bail_bond: Mapped[int] = mapped_column(Integer, primary_key=False)  # Aligning with case_id from CSV
-    surety_bond_required: Mapped[bool] = mapped_column(String, nullable=False)  # Aligning with surety_bond_required from CSV
+    risk_of_escape: Mapped[str] = mapped_column(String, nullable=False)  # Aligning with risk_of_escape from CSV
+    risk_of_influence: Mapped[str] = mapped_column(String, nullable=False)  # Aligning with risk_of_escape from CSV
+    surety_bond_required: Mapped[str] = mapped_column(String, nullable=False)  # Aligning with surety_bond_required from CSV
+    personal_bond_required: Mapped[str] = mapped_column(String, nullable=False)  # Aligning with surety_bond_required from CSV
+    fines_applicable: Mapped[str] = mapped_column(String, nullable=False)  # Aligning with surety_bond_required from CSV
+    served_half_term: Mapped[str] = mapped_column(String, nullable=False)  # Aligning with served_half_term from CSV
+    bail_eligibility: Mapped[str] = mapped_column(String, nullable=True)  # Aligning with case_id from CSV
+    risk_score: Mapped[int] = mapped_column(Integer, nullable=True)  # Aligning with case_id from CSV
+    penalty_severity: Mapped[int] = mapped_column(Integer, nullable=True)  # Aligning with case_id from CSV
     # fines_applicable: Mapped[bool] = mapped_column(String, nullable=False)  # Aligning with fines_applicable from CSV
-    served_half_term: Mapped[bool] = mapped_column(String, nullable=False)  # Aligning with served_half_term from CSV
+
+    def to_dataframe(self):
+        return pd.DataFrame([{
+            "case_id": self.case_id,
+            "case_number": self.case_number,
+            "statute": self.statute,
+            "offense_category": self.offense_category,
+            "penalty": self.penalty,
+            "imprisonment_duration_served": self.imprisonment_duration_served,
+            "risk_of_escape": self.risk_of_escape,
+            "risk_of_influence": self.risk_of_influence,
+            "surety_bond_required": self.surety_bond_required,
+            "personal_bond_required": self.personal_bond_required,
+            "fines_applicable": self.fines_applicable,
+            "served_half_term": self.served_half_term,
+            "bail_eligibility": self.bail_eligibility,
+            "risk_score": self.risk_score,
+            "penalty_severity": self.penalty_severity
+        }])
    
 with app.app_context():
     db.create_all()
 
 
 @app.route("/detail")
-def ui():
-    
+def ui(): 
     return render_template("case_detail.html")
+# imprisonment_duration_served,risk_of_escape,risk_of_influence,surety_bond_required,personal_bond_required,fines_applicable,served_half_term,
 
 @app.route("/getData",methods=["GET","POST"])
+@app.route("/getData", methods=["GET", "POST"])
 def get_data():
-    getget()
     print("hua run")
     if request.method == "POST":
+        list = ['True', 'False']
+        nums = [1, 2, 3]
         form_data = Case_Data(
-        case_number=int(request.form.get('Case_number')),
-        statute=request.form.get('acts'),
-        offense_category=request.form.get('crime_types'),
-        penalty=request.form.get('penalty_or_fine'),
-        imprisonment_duration_served=int(request.form.get('imprisonment')),  # Imprisonment duration field
-        risk_of_escape=request.form.get('ever_escaped') == 'True',  # Risk of escape boolean
-        bail_bond=int(request.form.get('bail_bond')) if request.form.get('bail_bond') else None,
-        surety_bond_required=request.form.get('suretybond') == 'True',  # Surety bond boolean
-        served_half_term=request.form.get('served_half_term') == 'True',  # Served half term boolean
+            case_number=int(request.form.get('Case_number')),
+            statute=request.form.get('acts'),
+            offense_category=request.form.get('crime_types'),
+            penalty=request.form.get('penalty_or_fine'),
+            imprisonment_duration_served=int(request.form.get('imprisonment')),
+            risk_of_escape=random.choice(list),
+            risk_of_influence=random.choice(list),
+            surety_bond_required='True',
+            personal_bond_required='True',
+            fines_applicable='True',
+            served_half_term=random.choice(list),
+            bail_eligibility=random.choice(list),
+            risk_score=random.choice(nums),
+            penalty_severity=random.randint(20, 400)
         )
+        # Append form_data to CSV and database
         db.session.add(form_data)
-        db.session.commit()
         append_to_csv(form_data)
+        getget()
+        
+        db.session.commit()
+
+        # Pass the new instance to getget
 
         return "Data Submitted Successfully"
-
 
 @app.route('/')
 def index():
@@ -103,6 +141,7 @@ def index():
 
 file_path="a.csv"
 data = pd.read_csv(file_path)
+
 
 @app.route("/hogaya")
 def getget():
@@ -166,11 +205,12 @@ def getget():
     output_data.to_csv(output_file, index=False)
 
     print(f"Predictions and bail percentages saved to {output_file}")
-    # getget()
-    return "Generated"
+
+    return "Done"
+
+
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-    getget()
 
