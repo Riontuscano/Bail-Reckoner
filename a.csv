@@ -999,3 +999,4 @@ case_id,statute,offense_category,penalty,imprisonment_duration_served,risk_of_es
 998,IPC,Crimes Against Women,Fine,81,False,True,False,False,True,True,False,2,81
 999,NDPS,Offences Against the State,Fine,55,True,False,True,False,False,False,False,1,55
 1000,PMLA,Crimes Against SCs and STs,Fine,23,True,True,True,True,False,False,False,2,23
+100022,PMLA,Crimes Against SCs and STs,Fine,45,True,True,True,True,False,False,False,2,232
