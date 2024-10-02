@@ -1000,3 +1000,14 @@ case_id,statute,offense_category,penalty,imprisonment_duration_served,risk_of_es
 999,NDPS,Offences Against the State,Fine,55,True,False,True,False,False,False,False,1,55
 1000,PMLA,Crimes Against SCs and STs,Fine,23,True,True,True,True,False,False,False,2,23
 100022,PMLA,Crimes Against SCs and STs,Fine,45,True,True,True,True,False,False,False,2,232
+12345,PMLA,Cyber Crimes,Fine,12,True,False,True,False,False,True,True,1,272
+212345,PMLA,Cyber Crimes,Fine,12,True,False,True,False,True,True,True,1,215
+332421,PMLA,Cyber Crimes,Fine,12,True,False,True,True,False,True,True,3,108
+93791,PMLA,Cyber Crimes,Fine,33,False,True,True,False,True,True,True,2,117
+3974114,PMLA,Cyber Crimes,Fine,122,True,True,True,False,True,True,True,2,21
+123322,PMLA,Cyber Crimes,Fine,112,False,True,True,False,False,True,True,3,133
+3849048,PMLA,Cyber Crimes,Fine,112,True,True,True,False,True,True,True,1,121
+12222221,PMLA,Cyber Crimes,Fine,11,False,False,True,False,True,True,True,3,266
+9879174,PMLA,Cyber Crimes,Fine,323,False,False,True,False,False,True,True,1,74
+11222333344,PMLA,Cyber Crimes,Fine,92,False,True,True,False,False,True,True,2,23
+999999,PMLA,Cyber Crimes,Fine,22,False,True,True,True,False,True,True,2,329
