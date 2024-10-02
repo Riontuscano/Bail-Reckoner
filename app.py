@@ -97,6 +97,10 @@ def get_data():
         return "Data Submitted Successfully"
 
 
+@app.route('/predictor')
+def predictor():
+   return render_template('predictor.html')
+
 @app.route('/')
 def index():
    return render_template('index.html')
